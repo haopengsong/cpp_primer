@@ -1,0 +1,33 @@
+// printMultiDimensionArrayWithPointer
+// print the value of each element in ia, with each inner array on its own line
+// p points to an array of four ints
+#include <iostream>
+#include <iterator>
+
+using namespace std;
+
+int main() {
+    constexpr size_t rowCnt = 3, colCnt = 4;
+    int ia[rowCnt][colCnt];
+    for (auto p = ia; p != ia + 3; p++) {
+        // the result of *p is an array of four intS
+        // q is a pointer points to the first element in the inner array
+        for (auto q = *p; q != *p + 4; q++) {
+            cout << *q << endl ;
+        }
+        cout << endl;
+    }
+    cout << "easy way" << endl;
+    // even more easily using begin and end
+    // p points to the first array in ia
+    // p is a pointer points to an array of four ints
+    // q is a pointer points to an int
+    for (auto p = begin(ia); p != end(ia); p++) {
+        // q points to the first element in an inner array
+       for (auto q = begin(*p); q != end(*p); q++) {
+            cout << *q << endl;
+       }
+       cout << endl;
+    }
+    return 0;
+}
