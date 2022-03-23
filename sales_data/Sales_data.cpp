@@ -2,6 +2,11 @@
 #include <iostream>
 
 class Sales_data {
+// firend declarations for non-member Sales_data operations added
+friend Sales_data add(const Sales_data&, const Sales_data&);
+friend std::istream &read(std::istream&, Sales_data&);
+friend std::ostream &print(std::ostream&, const Sales_data&);
+
 public:
 
     // Constructors added
